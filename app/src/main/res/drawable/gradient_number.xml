@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Градиент -->
+    <gradient
+        android:type="linear"
+        android:startColor="#575240"
+        android:endColor="#301950"
+        android:angle="315"/>
+
+    <!-- Скругление углов -->
+    <corners android:radius="20dp"/>
+
+    <!-- Дополнительно: Добавьте обводку если нужно -->
+    <!-- <stroke android:width="2dp" android:color="#FFFFFF"/> -->
+</shape>
