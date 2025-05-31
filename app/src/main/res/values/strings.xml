@@ -25,4 +25,7 @@
     <string name="calc_degree">^</string>
 
     <string name="Math_container">0</string>
+    <string name="History_str">История</string>
+    <string name="Theme_str">Темы</string>
+    <string name="Setting_str">Настройки</string>
 </resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#181B2A"
+    android:padding="16dp"
+    android:weightSum="3">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:background="@drawable/gradient_sumb"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:text="@string/History_str"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeMaxTextSize="25sp"
+        app:autoSizeStepGranularity="1sp"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnTheme"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:background="@drawable/gradient_sumb"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:text="@string/Theme_str"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeMaxTextSize="25sp"
+        app:autoSizeStepGranularity="1sp"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:background="@drawable/gradient_sumb"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:text="@string/Setting_str"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeMaxTextSize="25sp"
+        app:autoSizeStepGranularity="1sp"/>
+
+</LinearLayout>

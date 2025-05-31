@@ -1,10 +1,18 @@
 package com.example.calc;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.graphics.Insets;
@@ -14,8 +22,11 @@ import org.mariuszgromada.math.mxparser.*;
 
 public class MainActivity extends AppCompatActivity {
     String math_operation = "0";
+    String math_lastOperation;
     TextView math_cont;
+    TextView math_LastCont;
     private HorizontalScrollView mathScrollView;
+    private HorizontalScrollView mathScrollViewLast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         AppCompatTextView seven = findViewById(R.id.calc_7);
         AppCompatTextView eight = findViewById(R.id.calc_8);
         AppCompatTextView nine = findViewById(R.id.calc_9);
+        AppCompatTextView menu = findViewById(R.id.burger);
 
         AppCompatTextView scLeft = findViewById(R.id.scLeft);
         AppCompatTextView scRight = findViewById(R.id.scRight);
@@ -52,10 +64,17 @@ public class MainActivity extends AppCompatActivity {
         AppCompatTextView equally = findViewById(R.id.equally);
 
         math_cont = findViewById(R.id.Math_container);
+        math_LastCont = findViewById(R.id.Math_lastContainer);
 
         mathScrollView = findViewById(R.id.math_scroll_view);
+        mathScrollViewLast = findViewById(R.id.LastHorizontal);
 
 
+
+
+        menu.setOnClickListener(v -> {
+            showMenu();
+        });
         zero.setOnClickListener(v -> {
             delNull();
             if (percentbool()) {
@@ -221,9 +240,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         equally.setOnClickListener(v -> {
+            math_lastOperation = math_operation;
+            math_LastCont.setText(math_lastOperation);
             math_operation = String.valueOf(evaluateExpression(math_operation));
             math_cont.setText(math_operation);
             updateMathContainer();
+        });
+
+        math_LastCont.setOnClickListener(v -> {
+            math_operation = math_lastOperation;
+            math_cont.setText(math_operation);
+            math_lastOperation = "";
+            math_LastCont.setText(math_lastOperation);
+
         });
 
     }
@@ -282,6 +311,28 @@ public class MainActivity extends AppCompatActivity {
         String currentNumber = expression.substring(startIndex);
 
         return currentNumber.contains(".");
+    }
+
+    private void showMenu() {
+        View menuView = LayoutInflater.from(this).inflate(R.layout.bottom_menu, null);
+
+        AlertDialog bottomMenu = new AlertDialog.Builder(this, R.style.BottomDialogStyle)
+                .setView(menuView)
+                .create();
+
+
+
+        bottomMenu.show();
+
+        Window window = bottomMenu.getWindow();
+        if (window != null) {
+            window.setLayout(
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT
+            );
+            window.setGravity(Gravity.BOTTOM);
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
     }
 
 

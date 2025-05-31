@@ -9,6 +9,10 @@
     android:background="#181B2A"
     tools:context=".MainActivity">
 
+
+
+
+
     <GridLayout
         android:id="@+id/sfs"
         android:layout_width="0dp"
@@ -25,12 +29,32 @@
         app:layout_constraintBottom_toBottomOf="@id/main"
         app:layout_constraintTop_toTopOf="@id/main">
 
-        <View
+        <HorizontalScrollView
+            android:id="@+id/LastHorizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_row="0"
             android:layout_column="0"
-            android:layout_rowWeight="1"/>
+            android:layout_rowWeight="1"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Math_lastContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#77FFFFFF"
+                android:gravity="end"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:scrollHorizontally="true"
+                android:padding="3dp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeStepGranularity="2sp"/>
+
+        </HorizontalScrollView>
 
         <HorizontalScrollView
             android:id="@+id/math_scroll_view"
@@ -38,7 +62,7 @@
             android:layout_height="0dp"
             android:layout_row="1"
             android:layout_column="0"
-            android:layout_rowWeight="1"
+            android:layout_rowWeight="2"
             android:fillViewport="true"
             android:scrollbars="none">
 
@@ -55,7 +79,7 @@
                 android:padding="3dp"
                 android:autoSizeTextType="uniform"
                 android:autoSizeMinTextSize="12sp"
-                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeMaxTextSize="40sp"
                 android:autoSizeStepGranularity="2sp"/>
 
         </HorizontalScrollView>
